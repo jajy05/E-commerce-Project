@@ -9,6 +9,14 @@ const cors = require('cors');
 
 app.use(express.json());
 app.use(cors());
+const uri = process.env.MONGODB_URI;
+
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.error('MongoDB connection error:', err));
 
 mongoose.connect("mongodb+srv://Ecommerce:Pass%40123@cluster0.lyzwlxk.mongodb.net/e-commerce");
 
