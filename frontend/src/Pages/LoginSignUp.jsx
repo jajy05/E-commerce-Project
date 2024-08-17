@@ -15,7 +15,7 @@ export const LoginSignUp = () => {
   const login =async()=>{
    console.log("login function executed",formData);
    let responseData;
-    await fetch('https://e-commerce-project-a3o3.onrender.com/login',{
+    await fetch('https://jshop-backend.onrender.com/login',{
         method:'POST',
         headers:{
           Accept:'application/form-data',
@@ -36,7 +36,7 @@ export const LoginSignUp = () => {
   const signup =async()=>{
     console.log("sign up function exectuted",formData);
     let responseData;
-    await fetch('https://e-commerce-project-a3o3.onrender.com/signup',{
+    await fetch('https://jshop-backend.onrender.com/signup',{
         method:'POST',
         headers:{
           Accept:'application/form-data',
