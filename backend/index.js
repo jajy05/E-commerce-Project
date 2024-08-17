@@ -8,7 +8,7 @@ const path = require('path');
 const cors = require('cors');
 
 app.use(express.json());
-app.use(cors());
+app.use(cors("https://e-commerce-project-a3o3.onrender.com"));
 const uri = process.env.MONGODB_URI;
 
 mongoose.connect(uri, {
