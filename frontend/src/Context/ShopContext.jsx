@@ -36,9 +36,10 @@ const ShopContextProvider = (props) =>{
     },[])
     
     const addToCart = (itemId)=>{
-        setCartItems((prev)=>({...prev,[itemId]:prev[itemId]+1}))
+       
         console.log(cartItems);
         if(localStorage.getItem('auth-token')){
+             setCartItems((prev)=>({...prev,[itemId]:prev[itemId]+1}))
             fetch('https://jshop-backend.onrender.com/addtocart',{
                 method:'POST',
                 headers:{
@@ -52,6 +53,10 @@ const ShopContextProvider = (props) =>{
             .then((response)=>response.json())
             .then((data)=>console.log(data))
         }
+        else {
+        // If the user is not logged in, alert them to log in first
+        console.log("Please log in to add items to the cart.");
+    }
     }
 
     const removeFromCart = (itemId)=>{
@@ -71,6 +76,7 @@ const ShopContextProvider = (props) =>{
             .then((data)=>console.log(data));
             
         }
+        
     }
 
 
