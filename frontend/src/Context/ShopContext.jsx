@@ -22,15 +22,14 @@ const ShopContextProvider = (props) =>{
          .then((response)=>response.json())
          .then((data)=>setAll_Product(data))
          if(localStorage.getItem('auth-token')){
-            fetch('https://jshop-backend.onrender.com/getcart',{
-                method:'GET',
-               headers:{
-                Accept:'application/form-data',
-                'Authorization': `Bearer ${'auth-token'}`, 
-                'Content-Type':'application/json',
-            },  
-            body: JSON.stringify({}),
-            }).then((response)=>response.json())
+            fetch('https://jshop-backend.onrender.com/getcart', {
+  method: 'GET',
+  headers: {
+    Accept: 'application/json',
+    'Authorization': `Bearer ${localStorage.getItem('auth-token')}`,
+    'Content-Type': 'application/json',
+  }
+}).then((response)=>response.json())
             .then((data)=>setCartItems(data));
          }
     },[])
